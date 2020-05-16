@@ -81,20 +81,35 @@ class WHtoolsController extends FittingController
         if ($stocklvllist->isEmpty())
             return $stock;
 
-        $corporation_id = auth()->user()->character->corporation_id;
+        //Hard code corps (Yes I know I shouldnt...)
+        //$corporation_id = auth()->user()->character->corporation_id;
+		$contract_corp_id = '98502642'
+		$main_corp_id = '98293472'
 
         foreach ($stocklvllist as $stocklvl) {
             $ship = InvType::where('typeName', $stocklvl->fitting->shiptype)->first();
 
             //Contracts made to the corp but by corp members not on behalf of the corp
             $member_stock_contracts = ContractDetail::where('issuer_corporation_id', '=', $corporation_id)
-                ->where('title', 'LIKE', '%' . ($stocklvl->fitting->shiptype) . ' ' . trim($stocklvl->fitting->fitname) . '%')
+                ->where('title', 'LIKE', '%' . trim($stocklvl->fitting->fitname) . '%')
+                ->where('for_corporation', '=', '0')
+                ->where('status', 'LIKE', 'outstanding')
+                ->get();
+            //Contracts made to the corp but by Pospy corp members not on behalf of the corp
+            $member_stock_contracts = ContractDetail::where('issuer_corporation_id', '=', $main_corp_id)
+                ->where('title', 'LIKE', '%' . trim($stocklvl->fitting->fitname) . '%')
                 ->where('for_corporation', '=', '0')
                 ->where('status', 'LIKE', 'outstanding')
                 ->get();
             //Contracts made to the corp by corp members on behalf of the corp
             $stock_contracts = ContractDetail::where('issuer_corporation_id', '=', $corporation_id)
-                ->where('title', 'LIKE', '%' . ($stocklvl->fitting->shiptype) . ' ' . trim($stocklvl->fitting->fitname) . '%')
+                ->where('title', 'LIKE', '%' . trim($stocklvl->fitting->fitname) . '%')
+                ->where('for_corporation', '=', '1')
+                ->where('status', 'LIKE', 'outstanding')
+                ->get();
+            //Contracts made to Pospy corp by Contract corp members on behalf of the corp
+            $stock_contracts = ContractDetail::where('issuer_corporation_id', '=', $contract_corp_id)
+                ->where('title', 'LIKE', '%' . trim($stocklvl->fitting->fitname) . '%')
                 ->where('for_corporation', '=', '1')
                 ->where('status', 'LIKE', 'outstanding')
                 ->get();
