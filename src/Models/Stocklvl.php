@@ -1,6 +1,6 @@
 <?php
 
-namespace veteranmina\Seat\ContractStock\Models;
+namespace FlyingFerret\Seat\WHTools\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +8,7 @@ class Stocklvl extends Model
 {
     public $timestamps = true;
 
-    protected $table = 'contractstock_stocklvls';
+    protected $table = 'whtools_stocklvls';
 
     protected $fillable = ['id', 'minLvl', 'fitting_id'];
 

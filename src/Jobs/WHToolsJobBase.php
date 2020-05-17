@@ -1,6 +1,6 @@
 <?php
 
-namespace veteranmina\Seat\ContractStock\Jobs;
+namespace FlyingFerret\Seat\WHTools\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -8,7 +8,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-abstract class ContractStockJobBase implements ShouldQueue
+abstract class WHToolsJobBase implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -35,7 +35,7 @@ abstract class ContractStockJobBase implements ShouldQueue
     public function tags(): array
     {
 
-        $tags = ['contractstock'];
+        $tags = ['whtools'];
 
         if (property_exists($this, 'tags'))
             return array_merge($this->tags, $tags);

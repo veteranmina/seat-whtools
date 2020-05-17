@@ -4,7 +4,7 @@ namespace FlyingFerret\Seat\WHTools\Validation;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StocklvlValidation extends FormRequest
+class CertificateValidation extends FormRequest
 {
     public function authorize()
     {
@@ -14,9 +14,10 @@ class StocklvlValidation extends FormRequest
     public function rules()
     {
         return [
-            'stockSelection' => 'nullable',
-            'minlvl' => 'required',
-            'selectedfit' => 'required'
+            'certificateName' => 'required|string',
+            'selectedSkills' => 'required|array|min:1'
         ];
     }
 }
+
+?>

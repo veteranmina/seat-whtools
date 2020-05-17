@@ -22,8 +22,37 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 return [
 
     // Menu
-    'name' => 'ContractStock',
+    'name' => 'WHTools',
     'stocking' => 'Stocking',
+    'bluetax' => 'Blue Tax',
+    'certificates' => 'Certificates',
+
+    // Blue Tex
+    'bluesalesbydate' => 'Blue Loot Sales',
+    'bluetotals' => 'Blue Loot Sales Totals',
+    'bluetaxpayments' => 'Blue tax payments',
+    'bluetaxpaymentstotals' => 'Blue tax payment Totals',
+    'seller' =>'Seller',
+
+    // Certificates
+    'skillcheck' => 'Skills Check',
+    'certificateskills' => 'Certificate Skills',
+    'createanewcertificate' => 'Create a new certificate',
+    'choosecertificate' => 'Choose Certificate....',
+    'requiredlevel' => 'Required Level',
+    'characterlevel' => 'Character Level',
+    'certificaterank' => 'Certificate Rank',
+    'certificatename' => 'Certificate Name',
+    'rank' => 'Rank',
+    'charactercertificates' => 'Character Certificates',
+    'corporationcertificates' => 'Corporation Certificates',
+    'charactercertificatesdescription' => 'Character Certificates Description',
+    'corporationcertificatesdescription' => 'Corporation Certificates Description',
+    'certificatescoverage' => 'Certificates Coverage %',
+    'createcertificate' => 'Create a new certificate',
+    'editcert' => 'Edit Cert',
+    'deletecert' => 'Delete Cert',
+    'showrank' => 'Show Rank',
 
     // Stocking
     'stocklevelsfor' => 'Stock Levels for ',

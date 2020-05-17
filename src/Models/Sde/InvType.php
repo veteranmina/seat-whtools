@@ -5,7 +5,7 @@
  * Time: 15:13
  */
 
-namespace veteranmina\Seat\ContractStock\Models\Sde;
+namespace FlyingFerret\Seat\WHTools\Models\Sde;
 
 use Illuminate\Database\Eloquent\Model;
 

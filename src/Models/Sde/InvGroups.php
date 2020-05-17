@@ -1,7 +1,7 @@
 <?php
 
 
-namespace veteranmina\Seat\ContractStock\Models\Sde;
+namespace FlyingFerret\Seat\WHTools\Models\Sde;
 
 use Illuminate\Database\Eloquent\Model;
 

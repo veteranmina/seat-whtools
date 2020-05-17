@@ -1,19 +1,19 @@
 @extends('web::layouts.grids.8-4')
 
-@section('title', trans('contractstock::seat.stocking'))
-@section('page_header', trans('contractstock::seat.name'))
-@section('page_description', trans('contractstock::seat.stocking'))
+@section('title', trans('whtools::seat.stocking'))
+@section('page_header', trans('whtools::seat.name'))
+@section('page_description', trans('whtools::seat.stocking'))
 
 @section('left')
     <div class="box box-primary box-solid">
         <div class="box-header">
-            <h3 class="box-title">{{trans('contractstock::contractstock.stocklevelsfor')}}</h3>
+            <h3 class="box-title">{{trans('whtools::whtools.stocklevelsfor')}}</h3>
             <p class="text text-center"><span class="id-to-name"
                                               data-id="{{auth()->user()->character->corporation_id}}">{{ trans('web::seat.unknown') }}</span>
-            @if (auth()->user()->has('contractstock.stockedit', false))
+            @if (auth()->user()->has('whtools.stockedit', false))
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-xs btn-box-tool" id="addStocklvl" data-toggle="tooltip"
-                            data-placement="top" title="{{trans('contractstock::contractstock.addstocking')}}">
+                            data-placement="top" title="{{trans('whtools::whtools.addstocking')}}">
                         <span class="fa fa-plus-square"></span>
                     </button>
                 </div>
@@ -24,14 +24,14 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th>{{trans('contractstock::contractstock.ship')}}</th>
-                    <th>{{trans('contractstock::contractstock.fitname')}}</th>
-                    <th>{{trans('contractstock::contractstock.min')}}</th>
-                    <th>{{trans('contractstock::contractstock.corpstock')}}</th>
-                    <th>{{trans('contractstock::contractstock.membersstock')}}</th>
-                    <th>{{trans('contractstock::contractstock.contracttitle')}}</th>
+                    <th>{{trans('whtools::whtools.ship')}}</th>
+                    <th>{{trans('whtools::whtools.fitname')}}</th>
+                    <th>{{trans('whtools::whtools.min')}}</th>
+                    <th>{{trans('whtools::whtools.corpstock')}}</th>
+                    <th>{{trans('whtools::whtools.membersstock')}}</th>
+                    <th>{{trans('whtools::whtools.contracttitle')}}</th>
                     <th>{{ trans('web::seat.value') }}</th>
-                    <th class="pull-right">{{trans('contractstock::contractstock.option')}}</th>
+                    <th class="pull-right">{{trans('whtools::whtools.option')}}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -44,7 +44,7 @@
                             <td>{{ $item['fitname'] }}
                                 <button type="button" id="viewfit" class="btn btn-xs btn-success no-hover pull-right"
                                         data-id="{{$item['fitting_id']}}" data-toggle="tooltip" data-placement="top"
-                                        title="{{trans('contractstock::contractstock.viewfitting')}}">
+                                        title="{{trans('whtools::whtools.viewfitting')}}">
                                     <span class="fa fa-eye text-white"></span>
                                 </button>
                             </td>
@@ -55,15 +55,15 @@
                             <td>{{ number_format($item['totalContractsValue']) }}</td>
                             <td class="no-hover pull-right">
 
-                                @if (auth()->user()->has('contractstock.stockedit', false))
+                                @if (auth()->user()->has('whtools.stockedit', false))
                                     <button type="button" id="editStock" class="btn btn-xs btn-warning"
                                             data-id="{{$item['fitting_id']}}" data-toggle="tooltip" data-placement="top"
-                                            title="{{trans('contractstock::contractstock.editstocking')}}">
+                                            title="{{trans('whtools::whtools.editstocking')}}">
                                         <span class="fa fa-pencil text-white"></span>
                                     </button>
                                     <button type="button" id="deletestock" class="btn btn-xs btn-danger"
                                             data-id="{{$item['id']}}" data-toggle="tooltip" data-placement="top"
-                                            title="{{trans('contractstock::contractstock.deletestocking')}}">
+                                            title="{{trans('whtools::whtools.deletestocking')}}">
                                         <span class="fa fa-trash text-white"></span>
                                     </button>
                                 @endif
@@ -75,7 +75,7 @@
                 <tfoot>
                 <th></th>
                 <th></th>
-                <th>{{trans('contractstock::contractstock.total')}}</th>
+                <th>{{trans('whtools::whtools.total')}}</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -94,13 +94,13 @@
                 <div class="modal-header bg-primary">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">{{trans('contractstock::contractstock.selectfit')}}</h4>
+                    <h4 class="modal-title">{{trans('whtools::whtools.selectfit')}}</h4>
                 </div>
-                <form role="form" action="{{ route('contractstock.saveStocking') }}" method="post">
+                <form role="form" action="{{ route('whtools.saveStocking') }}" method="post">
 
                     <input type="hidden" id="stockSelection" name="stockSelection">
                     <div class="modal-body">
-                        <p id="pedittext">{{trans('contractstock::contractstock.pedittext')}}</p>
+                        <p id="pedittext">{{trans('whtools::whtools.pedittext')}}</p>
                         {{ csrf_field() }}
                         <div class="" id='selectfitbox'>
                             <select name="selectedfit" id="selectedfit" style="width: 60%">
@@ -118,7 +118,7 @@
                         <div class="btn-group pull-right" role="group">
                             <button type="button" class="btn btn-default"
                                     data-dismiss="modal">{{trans('web::seat.close')}}</button>
-                            <input type="submit" class="btn btn-primary" id="addstock" value="{{trans('contractstock::contractstock.submitstock')}}"/>
+                            <input type="submit" class="btn btn-primary" id="addstock" value="{{trans('whtools::whtools.submitstock')}}"/>
                         </div>
                     </div>
                 </form>
@@ -132,16 +132,16 @@
                 <div class="modal-header bg-primary">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">{{trans('contractstock::contractstock.confirm')}}</h4>
+                    <h4 class="modal-title">{{trans('whtools::whtools.confirm')}}</h4>
                 </div>
                 <div class="modal-body">
-                    <p>{{trans('contractstock::contractstock.confirmdeletestocking')}}</p>
+                    <p>{{trans('whtools::whtools.confirmdeletestocking')}}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"
                             data-dismiss="modal">{{trans('web::seat.close')}}</button>
                     <button type="button" class="btn btn-primary" id="deleteConfirm"
-                            data-dismiss="modal">{{trans('contractstock::contractstock.deletestocking')}}</button>
+                            data-dismiss="modal">{{trans('whtools::whtools.deletestocking')}}</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -149,7 +149,7 @@
 
     <div class="box box-primary box-solid" id='eftexport'>
         <div class="box-header">
-            <h3 class="box-title">{{trans('contractstock::contractstock.eftfitting')}}</h3>
+            <h3 class="box-title">{{trans('whtools::whtools.eftfitting')}}</h3>
         </div>
         <div class="box-body">
             <textarea name="showeft" id="showeft" rows="15" style="width: 100%" onclick="this.focus();this.select()"
@@ -168,7 +168,7 @@
                 <table class="table table-condensed table-striped" id="lowSlots">
                     <thead>
                     <tr>
-                        <th>{{trans('contractstock::contractstock.lowslotmodule')}}</th>
+                        <th>{{trans('whtools::whtools.lowslotmodule')}}</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
@@ -176,7 +176,7 @@
                 <table class="table table-condensed table-striped" id="midSlots">
                     <thead>
                     <tr>
-                        <th>{{trans('contractstock::contractstock.midslotmodule')}}</th>
+                        <th>{{trans('whtools::whtools.midslotmodule')}}</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
@@ -184,7 +184,7 @@
                 <table class="table table-condensed table-striped" id="highSlots">
                     <thead>
                     <tr>
-                        <th>{{trans('contractstock::contractstock.highslotmodule')}}</th>
+                        <th>{{trans('whtools::whtools.highslotmodule')}}</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
@@ -192,14 +192,14 @@
                 <table class="table table-condensed table-striped" id="rigs">
                     <thead>
                     <tr>
-                        <th>{{trans('contractstock::contractstock.rigs')}}</th>
+                        <th>{{trans('whtools::whtools.rigs')}}</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
                     <table class="table table-condensed table-striped" id="subSlots">
                         <thead>
                         <tr>
-                            <th>{{trans('contractstock::contractstock.subsystems')}}</th>
+                            <th>{{trans('whtools::whtools.subsystems')}}</th>
                         </tr>
                         </thead>
                         <tbody></tbody>
@@ -208,8 +208,8 @@
                 <table id="drones" class="table table-condensed table-striped">
                     <thead>
                     <tr>
-                        <th class="col-md-10">{{trans('contractstock::contractstock.dronebay')}}</th>
-                        <th class="col-md-2">{{trans('contractstock::contractstock.number')}}</th>
+                        <th class="col-md-10">{{trans('whtools::whtools.dronebay')}}</th>
+                        <th class="col-md-2">{{trans('whtools::whtools.number')}}</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
@@ -376,7 +376,7 @@
             $.ajax({
                 headers: function () {
                 },
-                url: "/contractstock/delstockingbyid/" + id,
+                url: "/whtools/delstockingbyid/" + id,
                 type: "GET",
                 datatype: 'json',
                 timeout: 10000

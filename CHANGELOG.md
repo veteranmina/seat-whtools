@@ -1,2 +1,3 @@
-# Version 0.1.0
-Initial start of program.
+# Version 1.0.0
+## Description
+This is the first item on the changelog.

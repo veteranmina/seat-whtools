@@ -22,8 +22,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 return [
 
     // 元数据
-    'name' => '合同库存',
+    'name' => '虫洞工具集',
     'stocking' => '战备',
+    'bluetax' => '蓝牌子税',
+    'certificates' => '证书',
 
 ];
 

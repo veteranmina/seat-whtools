@@ -22,8 +22,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 return [
 
     // Meta
-    'name' => 'ContractStock',
+    'name' => 'WHTools',
     'stocking' => 'Stocking',
+    'bluetax' => 'Blue Tax',
+    'certificates' => 'Certificates',
 
 ];
 
