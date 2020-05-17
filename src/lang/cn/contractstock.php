@@ -22,37 +22,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 return [
 
     // 菜单
-    'name' => '虫洞工具集',
+    'name' => '合同库存',
     'stocking' => '战备',
-    'bluetax' => '蓝牌子税',
-    'certificates' => '证书',
-
-    // Blue Tex
-    'bluesalesbydate' => '蓝牌子销售',
-    'bluetotals' => '蓝牌子销售总额',
-    'bluetaxpayments' => '蓝牌子税额',
-    'bluetaxpaymentstotals' => '蓝牌子税总额',
-    'seller' =>'售卖者',
-
-    // Certificates
-    'skillcheck' => '技能检查',
-    'certificateskills' => '证书技能',
-    'createanewcertificate' => '创建一个新的证书',
-    'choosecertificate' => '选择证书....',
-    'requiredlevel' => '需要等级',
-    'characterlevel' => '角色等级',
-    'certificaterank' => '证书等级',
-    'certificatename' => '证书名称',
-    'rank' => '等级',
-    'charactercertificates' => '角色证书',
-    'corporationcertificates' => '公司证书',
-    'charactercertificatesdescription' => '角色证书描述',
-    'corporationcertificatesdescription' => '公司证书描述',
-    'certificatescoverage' => '证书覆盖率 %',
-    'createcertificate' => '创建一个新的证书',
-    'editcert' => '编辑证书',
-    'deletecert' => '删除证书',
-    'showrank' => '显示等级',
 
     // Stocking
     'stocklevelsfor' => '战备等级关于',

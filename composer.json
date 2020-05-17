@@ -1,24 +1,24 @@
 {
-  "name": "flyingferret/seat-whtools",
-  "description": "Wormhole corporation tools for SeAT",
+  "name": "veteranmina/contractstock",
+  "description": "Contract Stock plugin for Seat",
   "type": "seat-plugin",
   "license": "GPL-2.0-only",
   "authors": [
     {
-      "name": "flyingferret",
-      "email": "flyingferret88@googlemail.com"
+      "name": "veteranmina",
+      "email": "veteranmina@gmail.com"
     }
   ],
   "minimum-stability": "alpha",
   "autoload": {
     "psr-4": {
-      "FlyingFerret\\Seat\\WHTools\\": "src/"
+      "veteranmina\\Seat\\ContractStock\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "FlyingFerret\\Seat\\WHTools\\WHToolsServiceProvider"
+        "veteranmina\\Seat\\ContractStock\\ContractStockServiceProvider"
       ]
     }
   },

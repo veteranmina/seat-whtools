@@ -1,6 +1,6 @@
 <?php
 
-namespace FlyingFerret\Seat\WHTools\Validation;
+namespace veteranmina\Seat\ContractStock\Validation;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -20,10 +20,21 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 return [
-
-    // 元数据
-    'name' => '合同库存',
-    'stocking' => '战备',
+    'contractstock' => [
+        'name' => 'ContractStock',
+        'label' => 'contractstock::seat.name',
+        'icon' => 'fa fa-sun-o',
+        'route_segment' => 'contractstock',
+        'permission' => ['contractstock.stockview'],
+        'entries' => [
+            [
+                'name' => 'Stocking',
+                'label' => 'contractstock::seat.stocking',
+                'icon' => 'fa fa-suitcase',
+                'route' => 'contractstock.stocking',
+                'permission' => 'contractstock.stockview'
+            ]
+        ]
+    ]
 
 ];
-

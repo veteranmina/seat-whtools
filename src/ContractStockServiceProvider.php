@@ -19,17 +19,17 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-namespace FlyingFerret\Seat\WHTools;
+namespace veteranmina\Seat\ContractStock;
 
 use Illuminate\Routing\Router;
 use Seat\Services\AbstractSeatPlugin;
 use Seat\Web\Http\Middleware\Locale;
 
 /**
- * Class WHToolsServiceProvider
- * @package FlyingFerret\Seat\WHTools
+ * Class ContractStockServiceProvider
+ * @package veteranmina\Seat\ContractStock
  */
-class WHToolsServiceProvider extends AbstractSeatPlugin
+class ContractStockServiceProvider extends AbstractSeatPlugin
 {
 
     /**
@@ -43,13 +43,13 @@ class WHToolsServiceProvider extends AbstractSeatPlugin
         // Include the Routes
         $this->add_routes();
 
-        // Add the views for WHTools
+        // Add the views for ContractStock
         $this->add_views();
 
-        //add commands for WHTools
+        //add commands for ContractStock
         $this->addCommands();
 
-        // Add the migrations for WHTools
+        // Add the migrations for ContractStock
         $this->add_migrations();
 
         // Include our translations
@@ -65,15 +65,15 @@ class WHToolsServiceProvider extends AbstractSeatPlugin
         // Merge the config with anything in the main app
         // Web package configurations
         $this->mergeConfigFrom(
-            __DIR__ . '/Config/whtools.config.php', 'whtools.config');
+            __DIR__ . '/Config/contractstock.config.php', 'contractstock.config');
         $this->mergeConfigFrom(
-            __DIR__ . '/Config/whtools.permissions.php', 'web.permissions');
+            __DIR__ . '/Config/contractstock.permissions.php', 'web.permissions');
         $this->mergeConfigFrom(
-            __DIR__ . '/Config/whtools.locale.php', 'web.locale');
+            __DIR__ . '/Config/contractstock.locale.php', 'web.locale');
 
         // Menu Configurations
         $this->mergeConfigFrom(
-            __DIR__ . '/Config/whtools.sidebar.php', 'package.sidebar');
+            __DIR__ . '/Config/contractstock.sidebar.php', 'package.sidebar');
 
     }
 
@@ -105,7 +105,7 @@ class WHToolsServiceProvider extends AbstractSeatPlugin
     public function add_views()
     {
 
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'whtools');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'contractstock');
     }
 
     /**
@@ -113,7 +113,7 @@ class WHToolsServiceProvider extends AbstractSeatPlugin
      */
     public function add_translations()
     {
-        $this->loadTranslationsFrom(__DIR__ . '/lang', 'whtools');
+        $this->loadTranslationsFrom(__DIR__ . '/lang', 'contractstock');
     }
 
     /**
@@ -129,31 +129,31 @@ class WHToolsServiceProvider extends AbstractSeatPlugin
 
     public function getName(): string
     {
-        return 'Seat-WHTools';
+        return 'Seat-ContractStock';
     }
 
     public function getPackageRepositoryUrl(): string
     {
-        return 'https://github.com/flyingferret/seat-whtools';
+        return 'https://github.com/veteranmina/contractstock';
     }
 
     public function getPackagistPackageName(): string
     {
-        return 'seat-whtools';
+        return 'Seat-ContractStock';
     }
 
     public function getPackagistVendorName(): string
     {
-        return 'flyingferret';
+        return 'veteranmina';
     }
 
     public function getVersion(): string
     {
-        return config('whtools.config.version');
+        return config('contractstock.config.version');
     }
 
     public function getChangelogUri(): ?string
     {
-        return 'https://raw.githubusercontent.com/flyingferret/seat-whTools/master/CHANGELOG.md';
+        return 'https://raw.githubusercontent.com/veteranmina/contractstock/master/CHANGELOG.md';
     }
 }

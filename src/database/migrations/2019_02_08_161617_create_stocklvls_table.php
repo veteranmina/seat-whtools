@@ -13,7 +13,7 @@ class CreateStocklvlsTable extends Migration
      */
     public function up()
     {
-        Schema::create('whtools_stocklvls', function (Blueprint $table) {
+        Schema::create('contractstock_stocklvls', function (Blueprint $table) {
             $table->increments('id')->index();
             $table->unsignedInteger('minLvl');
 
@@ -31,6 +31,6 @@ class CreateStocklvlsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('whtools_stocklvls');
+        Schema::dropIfExists('contractstock_stocklvls');
     }
 }

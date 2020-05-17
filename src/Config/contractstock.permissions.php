@@ -21,8 +21,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 return [
 
-    'whtools' => [
-        'stockview', 'stockedit', 'bluetaxview', 'certview', 'certchecker', 'certManager'
+    'contractstock' => [
+        'stockview', 'stockedit'
     ],
 
 ];
