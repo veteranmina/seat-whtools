@@ -9,7 +9,7 @@
         <div class="box-header">
             <h3 class="box-title">{{trans('whtools::whtools.stocklevelsfor')}}</h3>
             <p class="text text-center"><span class="id-to-name"
-                                              data-id="{{auth()->user()->character->corporation_id}}">{{ trans('web::seat.unknown') }}</span>
+                                                data-id="98502642">{{ trans('web::seat.unknown') }}</span>
             @if (auth()->user()->has('whtools.stockedit', false))
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-xs btn-box-tool" id="addStocklvl" data-toggle="tooltip"
@@ -51,7 +51,7 @@
                             <td>{{ $item['minlvl'] }}</td>
                             <td>{{ $item['stock'] }}</td>
                             <td>{{ $item['members_stock'] }}</td>
-                            <td>{{ $item['shiptype'] }} {{ $item['fitname'] }}</td>
+                            <td>{{ $item['fitname'] }}</td>
                             <td>{{ number_format($item['totalContractsValue']) }}</td>
                             <td class="no-hover pull-right">
 
@@ -107,7 +107,7 @@
                                 @if (count($fitlist) > 0)
                                     @foreach($fitlist as $fit)
                                         <option id="selectfit{{$fit['id']}}"
-                                                value="{{$fit['id']}}">{{$fit['fitname']}} {{$fit['shiptype']}}</option>
+                                                value="{{$fit['id']}}">{{$fit['fitname']}}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -389,7 +389,7 @@
         function fillFittingWindow(result) {
             if (result) {
                 $('#fitting-window').show();
-                $('#middle-header').text(result.shipname + ', ' + result.fitname);
+                $('#middle-header').text(result.fitname);
                 $('#showeft').val(result.eft);
                 $('#eftexport').show();
                 for (slot in result) {

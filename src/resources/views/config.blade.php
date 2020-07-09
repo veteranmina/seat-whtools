@@ -49,6 +49,46 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="whtools-configuration-contract-corp" class="col-md-4">Contract
+                            Corporation</label>
+                        <div class="col-md-7">
+                            <div class="input-group input-group-sm">
+                                <select class="form-control " id="whtools-contract-corp" name="whtools-contract-corp"
+                                        required>
+                                    @foreach($corps as $corp)
+                                        @if(setting('whtools.contract.corp', true) == $corp['id'])
+                                            <option id="{{$corp['id']}}" value="{{$corp['id']}}"
+                                                    selected='true'>{{$corp['name']}}</option>
+                                        @else
+                                            <option id="{{$corp['id']}}"
+                                                    value="{{$corp['id']}}">{{$corp['name']}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="whtools-configuration-main-corp" class="col-md-4">Main
+                            Corporation</label>
+                        <div class="col-md-7">
+                            <div class="input-group input-group-sm">
+                                <select class="form-control " id="whtools-main-corp" name="whtools-main-corp"
+                                        required>
+                                    @foreach($corps as $corp)
+                                        @if(setting('whtools.main.corp', true) == $corp['id'])
+                                            <option id="{{$corp['id']}}" value="{{$corp['id']}}"
+                                                    selected='true'>{{$corp['name']}}</option>
+                                        @else
+                                            <option id="{{$corp['id']}}"
+                                                    value="{{$corp['id']}}">{{$corp['name']}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 

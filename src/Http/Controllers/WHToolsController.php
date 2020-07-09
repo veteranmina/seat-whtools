@@ -82,6 +82,7 @@ class WHtoolsController extends FittingController
             return $stock;
 
         $corporation_id = auth()->user()->character->corporation_id;
+        $contract_corp_id = '98502642';
 
         foreach ($stocklvllist as $stocklvl) {
             $ship = InvType::where('typeName', $stocklvl->fitting->shiptype)->first();
@@ -93,7 +94,7 @@ class WHtoolsController extends FittingController
                 ->where('status', 'LIKE', 'outstanding')
                 ->get();
             //Contracts made to the corp by corp members on behalf of the corp
-            $stock_contracts = ContractDetail::where('issuer_corporation_id', '=', $corporation_id)
+            $stock_contracts = ContractDetail::where('issuer_corporation_id', '=', $contract_corp_id)
                 ->where('title', 'LIKE', '%' . ($stocklvl->fitting->shiptype) . ' ' . trim($stocklvl->fitting->fitname) . '%')
                 ->where('for_corporation', '=', '1')
                 ->where('status', 'LIKE', 'outstanding')
