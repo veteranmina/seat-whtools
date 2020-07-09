@@ -49,6 +49,9 @@
                             </div>
                         </div>
                     </div>
+
+                    <legend>{{'Stock Corp'}}</legend>
+
                     <div class="form-group">
                         <label for="whtools-configuration-contract-corp" class="col-md-4">Contract
                             Corporation</label>
