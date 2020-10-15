@@ -112,7 +112,7 @@
                                 @endif
                             </select>
                         </div>
-                        <input type="number" name='minlvl' min='1' max='50' value="1" style="width: 60%">
+                        <input type="number" name='minlvl' min='0' max='50' value="1" style="width: 60%">
                     </div>
                     <div class="modal-footer">
                         <div class="btn-group pull-right" role="group">

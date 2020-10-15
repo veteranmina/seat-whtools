@@ -83,6 +83,7 @@ class WHtoolsController extends FittingController
 
         $corporation_id = auth()->user()->character->corporation_id;
         $contract_corp_id = '98502642';
+		$curdate = date('Y-m-d H:i:s');
 
         foreach ($stocklvllist as $stocklvl) {
             $ship = InvType::where('typeName', $stocklvl->fitting->shiptype)->first();
@@ -92,12 +93,14 @@ class WHtoolsController extends FittingController
                 ->where('title', 'LIKE', '%' . trim($stocklvl->fitting->fitname) . '%')
                 ->where('for_corporation', '=', '0')
                 ->where('status', 'LIKE', 'outstanding')
+				->where('date_expired', '>', $curdate)
                 ->get();
             //Contracts made to the corp by corp members on behalf of the corp
             $stock_contracts = ContractDetail::where('issuer_corporation_id', '=', $contract_corp_id)
                 ->where('title', 'LIKE', '%' . trim($stocklvl->fitting->fitname) . '%')
                 ->where('for_corporation', '=', '1')
                 ->where('status', 'LIKE', 'outstanding')
+				->where('date_expired', '>', $curdate)
                 ->get();
 
             $totalContractsValue = 0;
