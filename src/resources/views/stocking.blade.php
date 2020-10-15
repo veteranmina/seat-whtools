@@ -26,9 +26,11 @@
                     <th></th>
                     <th>{{trans('whtools::whtools.ship')}}</th>
                     <th>{{trans('whtools::whtools.fitname')}}</th>
-                    <th>{{trans('whtools::whtools.min')}}</th>
+                    <th>{{trans('whtools::whtools.minstock')}}</th>
+					<th>{{trans('whtools::whtools.incstock')}}</th>
                     <th>{{trans('whtools::whtools.corpstock')}}</th>
                     <th>{{trans('whtools::whtools.membersstock')}}</th>
+					<th>{{trans('whtools::whtools.totstock')}}</th>
                     <th>{{trans('whtools::whtools.contracttitle')}}</th>
                     <th>{{ trans('web::seat.value') }}</th>
                     <th class="pull-right">{{trans('whtools::whtools.option')}}</th>
@@ -49,8 +51,10 @@
                                 </button>
                             </td>
                             <td>{{ $item['minlvl'] }}</td>
+							<td>{{ $item['inclvl'] }}</td>
                             <td>{{ $item['stock'] }}</td>
                             <td>{{ $item['members_stock'] }}</td>
+							<td>{{ $item['total_stock'] }}</td>
                             <td>{{ $item['fitname'] }}</td>
                             <td>{{ number_format($item['totalContractsValue']) }}</td>
                             <td class="no-hover pull-right">

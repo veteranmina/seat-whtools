@@ -88,23 +88,43 @@ class WHtoolsController extends FittingController
         foreach ($stocklvllist as $stocklvl) {
             $ship = InvType::where('typeName', $stocklvl->fitting->shiptype)->first();
 
-            //Contracts made to the corp but by corp members not on behalf of the corp
+            //Contracts - Free Agent Corp Members
             $member_stock_contracts = ContractDetail::where('issuer_corporation_id', '=', $corporation_id)
+				->where('assignee_id', '=', $corporation_id)
                 ->where('title', 'LIKE', '%' . trim($stocklvl->fitting->fitname) . '%')
                 ->where('for_corporation', '=', '0')
                 ->where('status', 'LIKE', 'outstanding')
 				->where('date_expired', '>', $curdate)
                 ->get();
-            //Contracts made to the corp by corp members on behalf of the corp
+            //Contracts - FF to Main Corp
             $stock_contracts = ContractDetail::where('issuer_corporation_id', '=', $contract_corp_id)
+				->where('assignee_id', '=', $corporation_id)
                 ->where('title', 'LIKE', '%' . trim($stocklvl->fitting->fitname) . '%')
                 ->where('for_corporation', '=', '1')
                 ->where('status', 'LIKE', 'outstanding')
 				->where('date_expired', '>', $curdate)
                 ->get();
+			//Contracts - Main Corp members to FF
+			$incoming_contracts = ContractDetail::where('issuer_corporation_id', '=', $corporation_id)
+				->where('assignee_id', '=', $contract_corp_id)
+                ->where('title', 'LIKE', '%' . trim($stocklvl->fitting->fitname) . '%')
+                ->where('for_corporation', '=', '0')
+                ->where('status', 'LIKE', 'outstanding')
+				->where('date_expired', '>', $curdate)
+                ->get();
 
             $totalContractsValue = 0;
+			$totalContractCount = 0;
 
+			foreach ($member_stock_contracts as $contract) {
+				$totalContractCount += 1;
+			}
+			foreach ($stock_contracts as $contract) {
+				$totalContractCount += 1;
+			}
+			foreach ($incoming_contracts as $contract) {
+				$totalContractCount += 1;
+			}
             foreach ($stock_contracts as $contract) {
                 $totalContractsValue += $contract->price;
             }
@@ -112,8 +132,10 @@ class WHtoolsController extends FittingController
             array_push($stock, [
                 'id' => $stocklvl->id,
                 'minlvl' => $stocklvl->minLvl,
+				'inclvl' => $incoming_contracts->count(),
                 'stock' => $stock_contracts->count(),
                 'members_stock' => $member_stock_contracts->count(),
+				'total_stock' => $totalContractCount,
                 'fitting_id' => $stocklvl->fitting_id,
                 'fitname' => $stocklvl->fitting->fitname,
                 'shiptype' => $stocklvl->fitting->shiptype,
